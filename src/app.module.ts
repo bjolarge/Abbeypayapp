@@ -8,6 +8,7 @@ import { ConfigModule } from '@nestjs/config';
 import { ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ProductsModule } from './products/products.module';
+import { LoavesModule } from './loaves/loaves.module';
 
 @Module({
 imports: [
@@ -54,6 +55,8 @@ imports: [
   AuthenticationModule,
 
   ProductsModule,
+
+  LoavesModule,
 
 
 ],

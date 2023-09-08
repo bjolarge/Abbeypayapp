@@ -1,6 +1,6 @@
-import { IsNumber, IsString } from "class-validator"
+import { IsString } from "class-validator";
 
-export class CreateProductDto {
+export class CreateLoafDto {
     @IsString()
     name:string;
     @IsString()
@@ -9,4 +9,6 @@ export class CreateProductDto {
     title:string;
     @IsString({each:true})
     readonly flavors:string[];
+    // @IsString({each:true})
+    // readonly loafSize:string[];
 }

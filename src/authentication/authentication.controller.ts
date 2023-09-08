@@ -43,19 +43,8 @@ export class AuthenticationController {
     return user;
   }
 
-  //logout
 
- // @UseGuards(JwtAuthenticationGuard)
-  // @Post('logout')
-  // @HttpCode(200)
-  // async logOut(@Req() request: RequestWithUser) {
-  //   console.log('Cannot read');
-  //   await this.usersService.removeRefreshToken(request.user.id);
-  //   request.res.setHeader(
-  //     'Set-Cookie',
-  //     this.authenticationService.getCookiesForLogOut(),
-  //   );
-  // }
+  //logout
 
   @Get('logout')
   logout(@Request() req): any {

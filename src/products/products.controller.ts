@@ -11,11 +11,10 @@ export class ProductsController {
 
 
   @Post()
-  async create(@Body() category: CreateProductDto) {
-    return this.productsService.create(category);
+  async create(@Body() product: CreateProductDto) {
+    return this.productsService.create(product);
   }
  
-
   @Get()
   findAll(){
     return this.productsService.findAll();
