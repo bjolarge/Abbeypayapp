@@ -7,6 +7,7 @@ import * as Joi from 'joi';
 import { ConfigModule } from '@nestjs/config';
 import { ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { ProductsModule } from './products/products.module';
 
 @Module({
 imports: [
@@ -20,9 +21,7 @@ imports: [
       JWT_ACCESS_TOKEN_EXPIRATION_TIME: Joi.string().required(),
       JWT_REFRESH_TOKEN_SECRET: Joi.string().required(),
       JWT_REFRESH_TOKEN_EXPIRATION_TIME: Joi.string().required(),
-      //google Oauth
-      GOOGLE_ID: Joi.string().required(),
-      GOOGLE_SECRET: Joi.string().required(),
+     
       //Email Service
       EMAIL_SERVICE: Joi.string().required(),
       EMAIL_USER: Joi.string().required(),
@@ -43,7 +42,7 @@ imports: [
       port: +configService.get<number>('DB_PORT'),
       username: configService.get('DB_USERNAME'), 
       password: configService.get('DB_PASSWORD'),
-      ssl:configService.get('DB_SSL'),
+      //ssl:configService.get('DB_SSL'),
       autoLoadEntities: true,
       synchronize: true,
     }),
@@ -53,6 +52,8 @@ imports: [
   UsersModule,
 
   AuthenticationModule,
+
+  ProductsModule,
 
 
 ],
