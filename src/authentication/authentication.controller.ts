@@ -7,6 +7,8 @@ import { LocalAuthenticationGuard } from '../authentication/guard/localAuthentic
 import JwtAuthenticationGuard from './guard/jwt-authentication.guard';
 import {UsersService} from '../users/users.service';
 import JwtRefreshGuard from './guard/jwt-refresh.guard';
+import { CurrentUser } from '../authentication/decorator/get-user.decorator';
+
  
 @Controller('authentication')
 export class AuthenticationController {
@@ -24,7 +26,9 @@ export class AuthenticationController {
   @HttpCode(200)
   @UseGuards(LocalAuthenticationGuard)
   @Post('login')
-  async logIn(@Req() request: RequestWithUser) {
+  async logIn(
+   @Req() request: RequestWithUser
+    ) {
     const { user } = request;
     const accessTokenCookie = this.authenticationService.getCookieWithJwtAccessToken(
       user.id,
